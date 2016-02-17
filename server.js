@@ -1,4 +1,4 @@
-var port = 3001;
+var port = 9004;
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -10,9 +10,9 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
     host:'localhost',
-    user:'root',
+    user:'kikilin',
     password:'',
-    database:'authentication'
+    database:'kikilin'
     
 
 
@@ -109,7 +109,7 @@ app.post("/login", function(req, res){
             if(rows[0].hashedPassword === hash){
                 req.session.isLoggedIn = true;
                 console.log("User "+req.body.username+" logged in");
-                res.redirect("/members");
+                res.redirect("/  members");
             
             }
             else{
